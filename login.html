@@ -1,58 +1,17 @@
-<!doctype html>
-<html lang="tr"><head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Giriş / Kayıt</title>
-<link rel="stylesheet" href="assets/style.css"/>
-</head><body>
-<div class="lock-overlay" id="lock"><div class="panel"><h3 style="margin:0 0 8px">Giriş gerekli</h3><div style="color:#a7b3d6">Setleri tam görmek ve indirmek için giriş yap.</div><div style="height:12px"></div><a class="btn primary" href="login.html">Giriş / Kayıt</a> <a class="btn" href="javascript:history.back()">Geri</a></div></div>
 
-<div class="nav"><div class="nav-inner">
-  <a class="brand" href="index.html"><span class="dot"></span><span>KORG PA Set Paylaşımı</span></a>
-  <div class="links">
-    <a class="link" href="models/pa1000.html">PA1000</a>
-    <a class="link" href="models/pa700.html">PA700</a>
-    <a class="link" href="models/pa4x.html">PA4X</a>
-    <a class="link" href="models/pa5x.html">PA5X</a>
-    <span data-user-slot></span>
-  </div>
-</div></div>
-<main class="container">
-  <h1>Giriş / Kayıt</h1>
-  <div class="card">
-    <h3>Giriş</h3>
-    <input class="input" id="li_user" placeholder="Kullanıcı adı"/><br/><br/>
-    <input class="input" id="li_pass" type="password" placeholder="Şifre"/><br/><br/>
-    <a class="btn" id="loginBtn" href="javascript:void(0)">Giriş</a>
-    <div id="li_msg" style="color:#ffb4b4;margin-top:10px"></div>
-  </div>
-  <div class="card">
-    <h3>Kayıt</h3>
-    <input class="input" id="re_user" placeholder="Kullanıcı adı"/><br/><br/>
-    <input class="input" id="re_pass" type="password" placeholder="Şifre"/><br/><br/>
-    <a class="btn" id="regBtn" href="javascript:void(0)">Kayıt</a>
-    <div id="re_msg" style="color:#ffb4b4;margin-top:10px"></div>
-  </div>
-</main>
-<script type="module">
-import { login, register } from "./assets/auth.js";
-const ret = new URL(location.href).searchParams.get("return") || "index.html";
-const go = () => location.href = ret;
-
-document.getElementById("loginBtn").onclick = () => {
-  try {
-    login(document.getElementById("li_user").value, document.getElementById("li_pass").value);
-    go();
-  } catch(e) {
-    document.getElementById("li_msg").textContent = e.message;
-  }
-};
-document.getElementById("regBtn").onclick = () => {
-  try {
-    register(document.getElementById("re_user").value, document.getElementById("re_pass").value);
-    go();
-  } catch(e) {
-    document.getElementById("re_msg").textContent = e.message;
-  }
-};
-</script>
-</body></html>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Giriş</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="container center">
+<h2>Giriş Yap</h2>
+<input id="loginUser" placeholder="Kullanıcı adı"><br>
+<input id="loginPass" type="password" placeholder="Şifre"><br>
+<button onclick="login()">Giriş</button>
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>
