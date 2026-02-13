@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PA1000 - KORG PA Set</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-page="model" data-model="PA1000">
+  <div class="nav">
+    <div class="nav-inner">
+      <div class="brand"><span class="dot"></span><span>KORG PA Set Paylaşımı</span></div>
+      <div style="position:relative; display:flex; gap:10px; align-items:center">
+        <div id="nav-links" class="nav-links"></div>
+        <div id="user-area"></div>
+        <div id="dropdown" class="dropdown">
+          <a id="dd-account" href="#"><div class="avatar" style="width:22px;height:22px">👤</div> Hesabım</a>
+          <div class="sep"></div>
+          <button id="dd-logout"><div class="avatar" style="width:22px;height:22px">⎋</div> Çıkış</button>
+          <div class="sep"></div>
+          <div style="padding:10px 12px"><small>Not: Bu giriş sistemi local (frontend). Gerçek güvenlik değildir.</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+<div class="container">
+  <div class="hero">
+    <h1 id="model-title">PA1000 Setleri</h1>
+    <p>PA1000 için tüm setler burada listelenir.</p>
+  </div>
+  <div id="set-list" class="list" style="margin-top:18px"></div>
+  <div class="footer">© 2026 • KORG PA Set Paylaşımı</div>
+</div>
+
+
+  <div id="toast" class="toast"></div>
+  <script src="../assets/app.js"></script>
+</body>
+</html>

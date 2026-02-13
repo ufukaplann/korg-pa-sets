@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Giriş - KORG PA Set</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body data-page="login">
+  <div class="nav">
+    <div class="nav-inner">
+      <div class="brand"><span class="dot"></span><span>KORG PA Set Paylaşımı</span></div>
+      <div style="position:relative; display:flex; gap:10px; align-items:center">
+        <div id="nav-links" class="nav-links"></div>
+        <div id="user-area"></div>
+        <div id="dropdown" class="dropdown">
+          <a id="dd-account" href="#"><div class="avatar" style="width:22px;height:22px">👤</div> Hesabım</a>
+          <div class="sep"></div>
+          <button id="dd-logout"><div class="avatar" style="width:22px;height:22px">⎋</div> Çıkış</button>
+          <div class="sep"></div>
+          <div style="padding:10px 12px"><small>Not: Bu giriş sistemi local (frontend). Gerçek güvenlik değildir.</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+<div class="container">
+  <div class="hero">
+    <h1>Giriş / Kayıt</h1>
+    <p>Bu sistem local (frontend). Gerçek üyelik altyapısı değildir.</p>
+    <div class="grid2">
+      <div class="card">
+        <h2>Giriş</h2>
+        <div class="row">
+          <input id="li-user" class="input" placeholder="Kullanıcı adı" autocomplete="username">
+          <input id="li-pass" class="input" placeholder="Şifre" type="password" autocomplete="current-password">
+          <button id="li-btn" class="btn">Giriş</button>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Kayıt</h2>
+        <div class="row">
+          <input id="reg-user" class="input" placeholder="Kullanıcı adı" autocomplete="username">
+          <input id="reg-pass" class="input" placeholder="Şifre" type="password" autocomplete="new-password">
+          <button id="reg-btn" class="btn secondary">Kayıt</button>
+        </div>
+        <p class="small" style="margin-top:10px">Kayıt/şifre sadece bu cihazda saklanır.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div id="toast" class="toast"></div>
+  <script src="/assets/app.js"></script>
+</body>
+</html>

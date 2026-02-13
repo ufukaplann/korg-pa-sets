@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KORG PA Set Paylaşımı</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body data-page="index">
+  <div class="nav">
+    <div class="nav-inner">
+      <div class="brand"><span class="dot"></span><span>KORG PA Set Paylaşımı</span></div>
+      <div style="position:relative; display:flex; gap:10px; align-items:center">
+        <div id="nav-links" class="nav-links"></div>
+        <div id="user-area"></div>
+        <div id="dropdown" class="dropdown">
+          <a id="dd-account" href="#"><div class="avatar" style="width:22px;height:22px">👤</div> Hesabım</a>
+          <div class="sep"></div>
+          <button id="dd-logout"><div class="avatar" style="width:22px;height:22px">⎋</div> Çıkış</button>
+          <div class="sep"></div>
+          <div style="padding:10px 12px"><small>Not: Bu giriş sistemi local (frontend). Gerçek güvenlik değildir.</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+<div class="container">
+  <div class="hero">
+    <h1>KORG PA serileri için set arşivi</h1>
+    <p>PA1000 / PA700 / PA4X / PA5X setlerini listeler. İndirme için giriş gerekir. (Üyelik local - şimdilik.)</p>
+
+    <div id="login-gate" style="display:none">
+      <div class="grid2">
+        <div class="card">
+          <h2>Giriş</h2>
+          <p>Kullanıcı adın ve şifren ile giriş yap.</p>
+          <div class="row">
+            <input id="li-user" class="input" placeholder="Kullanıcı adı" autocomplete="username">
+            <input id="li-pass" class="input" placeholder="Şifre" type="password" autocomplete="current-password">
+            <button id="li-btn" class="btn">Giriş</button>
+          </div>
+          <div style="margin-top:10px" class="small">İpucu: Daha önce farklı sürüm denediysen, bazen tarayıcı eski veriyi tutar. Böyle durumda F12 > Console: <b>localStorage.clear()</b></div>
+        </div>
+
+        <div class="card">
+          <h2>Kayıt</h2>
+          <p>Yeni kullanıcı adı + şifre oluştur.</p>
+          <div class="row">
+            <input id="reg-user" class="input" placeholder="Kullanıcı adı" autocomplete="username">
+            <input id="reg-pass" class="input" placeholder="Şifre" type="password" autocomplete="new-password">
+            <button id="reg-btn" class="btn secondary">Kayıt</button>
+          </div>
+          <div style="margin-top:10px" class="small">Bu kayıt sadece bu cihaz/tarayıcıda saklanır (localStorage).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="content" style="display:none">
+    <div class="grid2">
+      <div class="card">
+        <h2>Set bul</h2>
+        <p>Model seç ve arama yap.</p>
+        <div class="row">
+          <select id="model" class="input" style="flex:.6">
+            <option value="ALL">Tüm Modeller</option>
+            <option value="PA1000">PA1000</option>
+            <option value="PA700">PA700</option>
+            <option value="PA4X">PA4X</option>
+            <option value="PA5X">PA5X</option>
+          </select>
+          <input id="search" class="input" placeholder="Ara: düğün / halay / dj ..." />
+        </div>
+        <div style="margin-top:10px" class="row">
+          <span class="badge">Detaya girip “İndir” ile Yandex/Drive açılır</span>
+          <span class="badge">İndirilenler: Hesabım</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Hızlı yön</h2>
+        <p>Model sayfalarına geç.</p>
+        <div class="row">
+          <a class="btn secondary" href="/korg-pa-sets/models/pa1000.html">PA1000</a>
+          <a class="btn secondary" href="/korg-pa-sets/models/pa700.html">PA700</a>
+          <a class="btn secondary" href="/korg-pa-sets/models/pa4x.html">PA4X</a>
+          <a class="btn secondary" href="/korg-pa-sets/models/pa5x.html">PA5X</a>
+        </div>
+        <div style="margin-top:12px" class="small">Not: Gerçek üyelik/ödemeyi sonra ekleriz. Şimdilik arşiv + takip sistemi.</div>
+      </div>
+    </div>
+
+    <div id="set-list" class="list"></div>
+    <div class="footer">© 2026 • KORG PA Set Paylaşımı</div>
+  </div>
+</div>
+
+
+  <div id="toast" class="toast"></div>
+  <script src="/assets/app.js"></script>
+</body>
+</html>
