@@ -1,0 +1,24 @@
+[
+  {
+    "id": "pa1000-ornek-1",
+    "model": "PA1000",
+    "title": "Örnek PA1000 Set",
+    "credits": 1,
+    "tags": [
+      "pop"
+    ],
+    "description": "Buraya set açıklaması gelecek.",
+    "download_url": "https://drive.google.com/your-file-link"
+  },
+  {
+    "id": "pa700-ornek-1",
+    "model": "PA700",
+    "title": "Örnek PA700 Set",
+    "credits": 1,
+    "tags": [
+      "halay"
+    ],
+    "description": "Buraya set açıklaması gelecek.",
+    "download_url": "https://yadi.sk/your-yandex-link"
+  }
+]
