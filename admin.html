@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="tr"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Admin • Set Ekle</title>
+<link rel="stylesheet" href="assets/style.css"/>
+</head><body>
+<div class="lock-overlay" id="lock"><div class="panel"><h3 style="margin:0 0 8px">Giriş gerekli</h3><div style="color:#a7b3d6">Setleri tam görmek ve indirmek için giriş yap.</div><div style="height:12px"></div><a class="btn primary" href="login.html">Giriş / Kayıt</a> <a class="btn" href="javascript:history.back()">Geri</a></div></div>
+
+<div class="nav"><div class="nav-inner">
+  <a class="brand" href="index.html"><span class="dot"></span><span>KORG PA Set Paylaşımı</span></a>
+  <div class="links"><span data-user-slot></span></div>
+</div></div>
+
+<main class="container">
+  <h1 class="h1">Admin: Set Ekle</h1>
+  <p class="sub">GitHub Pages statik. Bu sayfa sana <b>JSON kayıt</b> hazırlar. Kopyalayıp <span class="code">data/sets.json</span> içine yapıştırırsın.</p>
+
+  <div class="grid cols-2">
+    <div class="card">
+      <h3>Form</h3><div class="sep"></div>
+      <label class="small">Model</label><br/>
+      <select id="model" class="select">
+        <option>PA1000</option><option>PA700</option><option>PA4X</option><option>PA5X</option>
+      </select><br/><br/>
+      <label class="small">Başlık</label><br/>
+      <input id="title" class="input" placeholder="örn: PA1000 Düğün Set" /><br/><br/>
+      <label class="small">Açıklama</label><br/>
+      <input id="desc" class="input" placeholder="kısa açıklama" /><br/><br/>
+      <label class="small">İndirme linki (Yandex/Drive)</label><br/>
+      <input id="url" class="input" placeholder="https://..." /><br/><br/>
+      <label class="small">Etiketler (virgülle)</label><br/>
+      <input id="tags" class="input" placeholder="dugun, halay, dj" /><br/><br/>
+      <button class="btn primary" id="gen">JSON Oluştur</button>
+      <p class="small" id="msg"></p>
+    </div>
+
+    <div class="card">
+      <h3>Çıktı</h3><div class="sep"></div>
+      <div class="notice">Bu tek satırı <span class="code">data/sets.json</span> dosyasında listenin içine ekle.</div>
+      <div class="sep"></div>
+      <textarea id="out" class="input" style="width:100%;min-height:240px"></textarea>
+    </div>
+  </div>
+
+  <div class="footer">© 2026</div>
+</main>
+
+<script type="module">
+  import { currentUser } from "./assets/auth.js";
+  import "./assets/app.js";
+
+  // simple admin check
+  const u = currentUser();
+  const admins = ["ufukaplann"];
+  if(!u || !admins.includes(String(u.username||"").toLowerCase())) {
+    location.href = "login.html?return=" + encodeURIComponent(location.href);
+  }
+
+  function slug(s){
+    return String(s||"").toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
+  }
+
+  document.getElementById("gen").onclick = () => {
+    const model = document.getElementById("model").value;
+    const title = document.getElementById("title").value.trim();
+    const description = document.getElementById("desc").value.trim();
+    const download_url = document.getElementById("url").value.trim();
+    const tags = document.getElementById("tags").value.split(",").map(x=>x.trim()).filter(Boolean);
+
+    if(!title || !download_url) {
+      document.getElementById("msg").textContent = "Başlık ve link zorunlu.";
+      return;
+    }
+    const id = slug(model + "-" + title).slice(0,40) + "-" + Math.random().toString(36).slice(2,6);
+    const obj = {
+      id, model, title, description, download_url,
+      tags,
+      created_at: new Date().toISOString().slice(0,10)
+    };
+    document.getElementById("out").value = JSON.stringify(obj, null, 2) + ",";
+    document.getElementById("msg").textContent = "Hazır. Kopyala → data/sets.json içine yapıştır.";
+  };
+</script>
+</body></html>
