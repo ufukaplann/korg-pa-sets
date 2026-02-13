@@ -1,6 +1,6 @@
 <!doctype html><html lang="tr"><head>
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Hesabım</title>
+<title>Set Detay</title>
 <link rel="stylesheet" href="/korg-pa-sets/assets/style.css"/>
 </head><body>
 
@@ -14,24 +14,16 @@
 </header>
 
 <div class="container">
-  <h1>Hesabım</h1>
-  <p id="who" class="small"></p>
-  <div class="card">
-    <h3>İndirdiklerim</h3>
-    <div id="list" class="small"></div>
-  </div>
+  <h1>PA1000 Düğün Set</h1>
+  <p class="small">Şifreli RAR PA1000 seti.</p>
+  <a class="btn primary" id="dl" href="https://disk.yandex.com.tr/d/ebBnFwUf-GFEyg" target="_blank" rel="noopener">İndir</a>
+  <a class="btn" href="/korg-pa-sets/models/pa1000.html">Geri</a>
 </div>
 <script type="module">
-import { currentUser, listDownloads } from "/korg-pa-sets/assets/app.js";
-const u = currentUser();
-if(!u) {
+import { currentUser, addDownload } from "/korg-pa-sets/assets/app.js";
+if(!currentUser()) {
   location.href = "/korg-pa-sets/login.html?return=" + encodeURIComponent(location.href);
-} else {
-  document.getElementById("who").textContent = "@"+u;
 }
-const items = listDownloads();
-const el = document.getElementById("list");
-if(!items.length) el.textContent = "Henüz indirme yok.";
-else el.innerHTML = items.map(x=>`<div><b>${x.title}</b> • ${new Date(x.at).toLocaleString("tr-TR")}</div>`).join("");
+document.getElementById("dl").addEventListener("click", ()=> addDownload({title:"PA1000 Düğün Set"}));
 </script>
 </body></html>

@@ -1,17 +1,40 @@
-
-<!DOCTYPE html>
-<html>
-<head>
+<!doctype html><html lang="tr"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Giriş</title>
-<link rel="stylesheet" href="assets/style.css">
-</head>
-<body>
-<div class="container center">
-<h2>Giriş Yap</h2>
-<input id="loginUser" placeholder="Kullanıcı adı"><br>
-<input id="loginPass" type="password" placeholder="Şifre"><br>
-<button onclick="login()">Giriş</button>
+<link rel="stylesheet" href="/korg-pa-sets/assets/style.css"/>
+</head><body>
+
+<header>
+  <div><b>KORG PA Set Paylaşımı</b></div>
+  <nav>
+    <a href="/korg-pa-sets/index.html">Ana Sayfa</a>
+    <a href="/korg-pa-sets/models/pa1000.html">PA1000</a>
+    <span data-user-slot></span>
+  </nav>
+</header>
+
+<div class="container">
+  <h1>Giriş</h1>
+  <div class="card">
+    <input id="u" class="input" placeholder="Kullanıcı adı"/><br/><br/>
+    <input id="p" class="input" type="password" placeholder="Şifre (local)"/><br/><br/>
+    <a class="btn primary" id="go" href="javascript:void(0)">Giriş</a>
+    <div id="msg" class="small" style="margin-top:10px"></div>
+  </div>
+  <p class="small">Not: Bu sistem localStorage. Gerçek güvenlik değil.</p>
 </div>
-<script src="assets/app.js"></script>
-</body>
-</html>
+<script type="module">
+import { setUser } from "/korg-pa-sets/assets/app.js";
+const ret = new URL(location.href).searchParams.get("return") || "/korg-pa-sets/index.html";
+document.getElementById("go").onclick = () => {
+  const u = document.getElementById("u").value.trim();
+  const p = document.getElementById("p").value.trim();
+  if(u.length<3 || p.length<1) {
+    document.getElementById("msg").textContent="Kullanıcı adı (min 3) yaz.";
+    return;
+  }
+  setUser(u);
+  location.href = ret;
+};
+</script>
+</body></html>
