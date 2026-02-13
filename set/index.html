@@ -1,7 +1,51 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Set Detayı</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+  <script defer src="../assets/app.js"></script>
+</head>
+<body>
+<div class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html"><span class="dot"></span><span>KORG PA Set Paylaşımı</span></a>
+    <div class="links">
+      <a class="link" href="../models/pa1000.html">PA1000</a>
+      <a class="link" href="../models/pa700.html">PA700</a>
+      <a class="link" href="../models/pa4x.html">PA4X</a>
+      <a class="link" href="../models/pa5x.html">PA5X</a>
+    </div>
+  </div>
+</div>
+<main class="container">
+  <section class="hero">
+    <div class="pills">
+      <span class="pill" id="model">—</span>
+      <span class="pill" id="date">—</span>
+      <span id="tags" class="pills" style="margin:0"></span>
+    </div>
+    <h1 class="h1" id="title">Yükleniyor…</h1>
+    <p class="sub" id="desc"></p>
+  </section>
 
-<!doctype html><html><head><meta charset="utf-8">
-<link rel="stylesheet" href="../assets/style.css">
-<script defer src="../assets/app.js"></script>
-</head><body onload="loadSet()">
-<div class="wrap"><h1 id="title"></h1><p id="desc"></p>
-<a id="dl" href="#" target="_blank">İndir</a></div></body></html>
+  <div class="detail">
+    <div class="card">
+      <h3>Preview</h3>
+      <div class="preview" id="preview"></div>
+    </div>
+    <div class="card">
+      <h3>Kurulum / Not</h3>
+      <p id="howto" style="white-space:pre-line"></p>
+      <div class="sep"></div>
+      <a class="btn primary" id="dl" href="#" target="_blank" rel="noopener">İndir</a>
+      <a class="btn" href="javascript:history.back()">Geri</a>
+      <p class="small" style="margin-top:10px">Şifre yazısı (global) istersen sonra ekleriz.</p>
+    </div>
+  </div>
+
+  <div class="footer"><span class="small">İçerik: <span class="code">data/sets.json</span></span></div>
+</main>
+</body>
+</html>
