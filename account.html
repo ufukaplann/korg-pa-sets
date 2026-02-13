@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="tr"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Hesabım</title>
+<link rel="stylesheet" href="assets/style.css"/>
+</head><body>
+<div class="nav"><div class="nav-inner">
+  <a class="brand" href="index.html"><span class="dot"></span><span>KORG PA Set Paylaşımı</span></a>
+  <div class="links">
+    <a class="link" href="models/pa1000.html">PA1000</a>
+    <a class="link" href="models/pa700.html">PA700</a>
+    <a class="link" href="models/pa4x.html">PA4X</a>
+    <a class="link" href="models/pa5x.html">PA5X</a>
+    <span data-user-slot></span>
+  </div>
+</div></div>
+<main class="container">
+  <h1>Hesabım</h1>
+  <p id="who" style="color:#a7b3d6"></p>
+  <div class="card">
+    <a class="btn" id="logoutBtn" href="javascript:void(0)">Çıkış</a>
+    <div style="height:12px"></div>
+    <div id="list" style="color:#a7b3d6"></div>
+  </div>
+</main>
+<script type="module">
+import { currentUser, logout, listDownloads } from "./assets/auth.js";
+const u = currentUser();
+if(!u) {
+  location.href = "login.html?return=" + encodeURIComponent(location.href);
+} else {
+  document.getElementById("who").textContent = "@" + u.username;
+}
+document.getElementById("logoutBtn").onclick = () => {
+  logout(); location.href = "index.html";
+};
+const items = listDownloads();
+const el = document.getElementById("list");
+if(!items.length) el.textContent = "Henüz indirme yok.";
+else el.innerHTML = items.map(x => `<div><b>${x.title}</b> • ${x.model} • ${new Date(x.at).toLocaleString("tr-TR")}</div>`).join("");
+</script>
+</body></html>

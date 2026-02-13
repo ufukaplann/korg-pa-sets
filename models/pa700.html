@@ -1,45 +1,22 @@
 <!doctype html>
-<html lang="tr">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>PA700 Setleri</title>
-  <link rel="stylesheet" href="../assets/style.css" />
-  <script defer src="../assets/app.js"></script>
-</head>
-<body>
-<div class="nav">
-  <div class="nav-inner">
-    <a class="brand" href="../index.html"><span class="dot"></span><span>KORG PA Set Paylaşımı</span></a>
-    <div class="links">
-      <a class="link" href="../models/pa1000.html">PA1000</a>
-      <a class="link" href="../models/pa700.html">PA700</a>
-      <a class="link" href="../models/pa4x.html">PA4X</a>
-      <a class="link" href="../models/pa5x.html">PA5X</a>
-    </div>
+<html lang="tr"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>PA700</title>
+<link rel="stylesheet" href="../assets/style.css"/>
+</head><body>
+<div class="nav"><div class="nav-inner">
+  <a class="brand" href="../index.html"><span class="dot"></span><span>KORG PA Set Paylaşımı</span></a>
+  <div class="links">
+    <a class="link" href="../models/pa1000.html">PA1000</a>
+    <a class="link" href="../models/pa700.html">PA700</a>
+    <a class="link" href="../models/pa4x.html">PA4X</a>
+    <a class="link" href="../models/pa5x.html">PA5X</a>
+    <span data-user-slot></span>
   </div>
-</div>
+</div></div>
 <main class="container" data-model="PA700">
-  <section class="hero">
-    <h1 class="h1">PA700 setleri</h1>
-    <p class="sub">Ara, sırala, detaya gir.</p>
-  </section>
-
-  <div class="toolbar">
-    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
-      <input id="q" class="input" placeholder="Ara: düğün, halay, dj..." />
-      <select id="sort" class="select">
-        <option value="new">En yeni</option>
-        <option value="az">A → Z</option>
-        <option value="tag">Etikete göre</option>
-      </select>
-    </div>
-    <div class="small">Toplam: <b id="count">0</b></div>
-  </div>
-
-  <div id="list" class="grid cols-2"></div>
-
-  <div class="footer"><span class="small">Yeni set eklemek: <span class="code">data/sets.json</span></span></div>
+  <h1>PA700</h1>
+  <div id="list"></div>
 </main>
-</body>
-</html>
+<script type="module" src="../assets/app.js"></script>
+</body></html>

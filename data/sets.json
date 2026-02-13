@@ -3,17 +3,7 @@
     "id": "pa1000-1",
     "model": "PA1000",
     "title": "PA1000 Düğün Set",
-    "style": "Düğün / Halay",
-    "category": "Set",
-    "tags": [
-      "dugun",
-      "halay",
-      "dj"
-    ],
-    "created_at": "2026-02-13",
-    "description": "Şifreli RAR PA1000 seti. İndirdikten sonra arşivi açıp cihazına yükleyebilirsin.",
-    "howto": "Arşivi çıkar. USB'ye kopyala. PA1000: Media > Load ile yükle.",
-    "preview_url": "",
+    "description": "Şifreli RAR PA1000 seti.",
     "download_url": "https://disk.yandex.com.tr/d/ebBnFwUf-GFEyg"
   }
 ]
